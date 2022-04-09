@@ -1,7 +1,7 @@
 'use strict'
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
-const openingHours = {
-  [weekdays[3]]: {
+const openHours = {
+  [weekdays[1]]: {
     open: 12,
     close: 22,
   },
@@ -9,12 +9,12 @@ const openingHours = {
     open: 11,
     close: 23,
   },
-  [weekdays[5]]: {
+  [weekdays[4]]: {
     open: 0, // Open 24 hours
     close: 24,
   },
 }
-console.log(openingHours)
+// console.log(openHours)
 // Data needed for a later exercise
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30'
@@ -26,7 +26,7 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  openingHours,
+  openHours,
 
   order(starterMenu, mainIndex) {
     return [this.starterMenu[starterMenu], this.mainMenu[mainIndex]]
@@ -47,9 +47,32 @@ const restaurant = {
     console.log(otherIngredient)
   },
 }
-console.log(restaurant)
 
 /*
+////////////////////////////////////////////////////////////////
+if (restaurant.openHours && restaurant.openHours.mon)
+  console.log(restaurant.openHours.mon.open)
+
+console.log(restaurant.openHours.mon?.open)
+console.log(restaurant.openHours?.mon?.open)
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+for (const day of days) {
+  const open = restaurant.openHours[day]?.open ?? 'close'
+  console.log(`On ${day}, we open at ${open}`)
+}
+
+//Methods
+console.log(restaurant.order?.(0, 1) ?? 'MEthod does not exist')
+console.log(restaurant.orderKaneki?.(0, 1) ?? 'MEthod does not exist')
+
+// Arrays
+const users = [{ name: 'Jonas', email: 'hello@jonas.io' }]
+
+console.log(users[0]?.name ?? 'User array emty')
+
+// console.log(restaurant)
+
 const menu = [...restaurant.mainMenu, ...restaurant.starterMenu]
 // console.log(menu)
 
