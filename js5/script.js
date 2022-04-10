@@ -48,6 +48,60 @@ const restaurant = {
   },
 }
 
+const airline = 'TAP Air Portugal'
+const plane = 'A320'
+
+console.log(plane[0])
+console.log(plane[1])
+console.log(plane[2])
+console.log(plane[3])
+
+console.log('B737'[0])
+
+console.log(airline.length)
+console.log(airline.indexOf('r'))
+console.log(airline.lastIndexOf('r'))
+console.log(airline.indexOf('portugal'))
+
+console.log(airline.slice(4))
+console.log(airline.slice(4, 7))
+/*
+
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct'],
+  [false, 'Try again'],
+])
+console.log(question)
+
+// Covert object to map
+// console.log(Object.entries(openHours))
+const hoursMap = new Map(Object.entries(openHours))
+// console.log(hoursMap)
+
+//Quiz app
+console.log(question.get('question'))
+for (const [key, value] of question) {
+  if (typeof key === 'number') {
+    console.log(`Answer ${key}: ${value}`)
+  }
+}
+
+// const answer = Number(prompt('Your answer'))
+const answer = 3
+console.log(answer)
+console.log(question.get(question.get('correct') === answer))
+
+//Convert map to arrays
+console.log(...question)
+console.log(...question.entries())
+console.log(...question.keys())
+console.log(...question.values())
+
 const rest = new Map()
 rest.set('name', 'Classico Italiano')
 rest.set(1, 'Firenze, Italy')
@@ -70,7 +124,7 @@ console.log(rest.get(time > rest.get('open') && rest.get('close') > time))
 console.log(rest.has('categories'))
 rest.delete(2)
 console.log(rest)
-/*
+
 const ordersSet = new Set([
   'Pasta',
   'Pizza',
