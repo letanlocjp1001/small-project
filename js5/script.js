@@ -19,6 +19,14 @@ const openHours = {
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30'
 
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';')
+  const output = `${type.startsWith('_Delayed') ? '🇼🇸' : ''}${type.replaceAll(
+    '_',
+    ' '
+  )}  ${from} ${to} (${time.replace(':', 'h')})`
+  console.log(output)
+}
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano',
@@ -48,24 +56,119 @@ const restaurant = {
   },
 }
 
+/*
+//split and join
+console.log('a+very+nice+string'.split('+'))
+const [firstName, lastName] = 'Kaneki Ken'.split(' ')
+console.log(firstName, lastName)
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join('___')
+console.log(newName)
+
+const capitalizeName = function (name) {
+  const arrayName = name.split(' ')
+  const namesUpper = []
+  for (const word of arrayName) {
+    // namesUpper.push(word[0].toUpperCase() + word.slice(1))
+    namesUpper.push(word.replace(word[0], word[0].toUpperCase()))
+  }
+  console.log(namesUpper.join(' '))
+}
+capitalizeName('jassica ann smith davis')
+capitalizeName('kaneki ken')
+
+//Padding
+const message = 'Go to gate 23'
+console.log(message.padStart(25, '+'))
+
 const airline = 'TAP Air Portugal'
-const plane = 'A320'
+// const plane = 'A320'
+
+console.log(airline.toLowerCase())
+console.log(airline.toUpperCase())
+
+//Fix capitalization in name
+const passenger = 'jOnAS'
+const passengerLower = passenger.toLowerCase()
+console.log(passengerLower[0].toUpperCase() + passengerLower.slice(1))
+
+//Comparing emails
+const email = 'hello@gmail.com'
+const loginEmail = ' Hello@GmaiL.cOm \n'
+
+const lowerEmail = loginEmail.toLowerCase()
+const trimmedEmail = lowerEmail.trim()
+console.log(trimmedEmail)
+
+const normalizedEmail = loginEmail.toLowerCase().trim()
+console.log(normalizedEmail)
+console.log(email === normalizedEmail)
+
+//replacing
+const priceGB = '288,97K'
+const priceUS = priceGB.replace('K', '$').replace(',', '.')
+console.log(priceUS)
+
+const announcement = 'All passengers come to boarding door 23. Boarding door 23'
+
+console.log(announcement.replace(/door/g, 'gate'))
+
+const plane = 'Airbus A320neo'
+console.log(plane.includes('A320'))
+console.log(plane.includes('Boding'))
+console.log(plane.startsWith('Air'))
+
+if (plane.startsWith('Air') && plane.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family')
+}
+
+//Practice exercise
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase()
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('you are NOT allowed on board')
+  } else {
+    console.log('Welcome aboard')
+  }
+}
+checkBaggage('I have a laptop, some food and a pocket knife')
+checkBaggage('Socks and camera')
+checkBaggage('Got some snacks and a gun for protection')
 
 console.log(plane[0])
 console.log(plane[1])
 console.log(plane[2])
 console.log(plane[3])
 
-console.log('B737'[0])
+// console.log('B737'[0])
 
-console.log(airline.length)
-console.log(airline.indexOf('r'))
-console.log(airline.lastIndexOf('r'))
-console.log(airline.indexOf('portugal'))
+// console.log(airline.length)
+// console.log(airline.indexOf('r'))
+// console.log(airline.lastIndexOf('r'))
+// console.log(airline.indexOf('portugal'))
 
-console.log(airline.slice(4))
-console.log(airline.slice(4, 7))
-/*
+// console.log(airline.slice(4))
+// console.log(airline.slice(4, 7))
+
+console.log(airline.slice(0, airline.indexOf(' ')))
+console.log(airline.slice(airline.lastIndexOf(' ') + 1))
+
+console.log(airline.slice(-2))
+console.log(airline.slice(1, -1))
+
+const checkMiddleSeat = function (seat) {
+  //B and E are middle seats
+  const s = seat.slice(-1)
+  if (s === 'B' || s === 'E') {
+    console.log('You got the middle seat ')
+  } else {
+    console.log('You got lucky')
+  }
+}
+checkMiddleSeat('11B')
+checkMiddleSeat('23C')
+checkMiddleSeat('3E')
+
 
 const question = new Map([
   ['question', 'What is the best programming language in the world?'],
