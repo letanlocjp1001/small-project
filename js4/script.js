@@ -180,9 +180,10 @@ marriedJessica.lastName = 'Davis'
 
 const jessica2 = {
   firstName: 'Jessica',
-  lastName: 'Williams',
+  lastName: 'wiliam',
   age: 27,
   family: ['Alice, BEM'],
+  color: '#123',
 }
 const jessicaCopy = Object.assign({}, jessica2)
 jessicaCopy.lastName = 'DAvis'
